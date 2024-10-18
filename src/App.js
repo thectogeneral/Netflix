@@ -1,23 +1,16 @@
-import logo from './logo.svg';
+import { useContext } from "react";
+
 import './App.css';
+import NavbarWithoutUser from "./components/Header/NavbarWithoutUser";
+import Navbar from "./components/Header/Navbar";
+import { AuthContext } from "./Context/UserContext";
 
 function App() {
+  const { User, setUser } = useContext(AuthContext);
+  
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {User ? <Navbar></Navbar> : <NavbarWithoutUser></NavbarWithoutUser>}
     </div>
   );
 }
