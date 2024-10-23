@@ -10,6 +10,8 @@ import { getAuth, onAuthStateChanged } from "firebase/auth";
 
 
 const SignIn = lazy(() => import("./Pages/SignIn"));
+const SignUp = lazy(() => import("./Pages/SignUp"));
+
 
 function App() {
   const { User, setUser } = useContext(AuthContext);
@@ -27,6 +29,7 @@ function App() {
       <Suspense replace fallback={<Loading />}>
         <Routes>
           <Route path="/signin" element={<SignIn />} />
+          <Route path="/signup" element={<SignUp />} />
         </Routes>
       </Suspense>
     </div>
